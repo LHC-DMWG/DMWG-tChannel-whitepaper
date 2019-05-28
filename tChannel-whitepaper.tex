@@ -1,0 +1,184 @@
+\documentclass[a4paper, 11pt,notoc]{article}
+\pdfoutput=1
+\usepackage{jcappub}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage{caption}
+\usepackage{xspace}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{placeins}
+\usepackage{array}
+\usepackage{subcaption}
+
+% Variables
+\newcommand{\sigv}{\ensuremath{\langle \sigma v_{\rm{rel}} \rangle}\xspace}
+\newcommand{\MET}{\ensuremath{E_T^\mathrm{miss}}\xspace}
+\newcommand{\met}{\MET}
+\newcommand{\MT}{\ensuremath{M_{T}}\xspace}
+\newcommand{\pt}{\ensuremath{p_{T}}\xspace}
+
+% Units
+\newcommand{\GeV}{\textrm{GeV}\xspace}
+\newcommand{\gev}{\GeV\xspace}
+\newcommand{\TeV}{\textrm{TeV}\xspace}
+\newcommand{\tev}{\TeV\xspace}
+
+% Particle names
+\newcommand{\lp}{\ensuremath{l^{+}}\xspace}
+\newcommand{\lm}{\ensuremath{l^{-}}\xspace}
+\newcommand{\ttbar}{\ensuremath{\bar{t}t}}
+\newcommand{\bbbar}{\ensuremath{\bar{b}b}}
+\newcommand{\A}{A}
+\newcommand{\pa}{a}
+\newcommand{\pH}{H}
+\newcommand{\pZ}{Z}
+\newcommand{\Hc}{\ensuremath{H^{\pm}}\xspace}
+
+% Particle masses
+\newcommand{\mDM}{\ensuremath{M_{\chi}}\xspace}
+\newcommand{\mdm}{\ensuremath{M_{\chi}}\xspace}
+\newcommand{\mmed}{\ensuremath{M_{\rm{med}}}\xspace}
+\newcommand{\mMed}{\ensuremath{M_{\rm{med}}}\xspace}
+\newcommand{\mZ}{\ensuremath{M_{\rm{Z}}}\xspace}
+\newcommand{\mA}{\ensuremath{M_{A}}\xspace}
+\newcommand{\ma}{\ensuremath{M_{a}}\xspace}
+\newcommand{\mH}{\ensuremath{M_{H}}\xspace}
+\newcommand{\mHc}{\ensuremath{M_{H^{\pm}}}\xspace}
+\newcommand{\mh}{\ensuremath{M_{h}}\xspace}
+\newcommand{\mt}{\ensuremath{M_{t}}\xspace}
+
+% Couplings
+\newcommand{\gDM}{\ensuremath{g_{\rm{DM}}}\xspace}
+\newcommand{\gq}{\ensuremath{g_q}\xspace}
+\newcommand{\gSM}{\gq}
+\newcommand{\gdm}{\gDM}
+\newcommand{\ifb}{\ensuremath{\rm{fb}^{-1}}\xspace}
+
+% Other parameters
+\newcommand{\sinp}{\ensuremath{\sin\theta}\xspace}
+\newcommand{\cosp}{\ensuremath{\cos\theta}\xspace}
+\newcommand{\sinbma}{\ensuremath{\sin(\beta - \alpha)}\xspace}
+\newcommand{\cosbma}{\ensuremath{\cos(\beta - \alpha)}\xspace}
+\newcommand{\tanb}{\ensuremath{\tan\beta}\xspace}
+\newcommand{\lap}[1]{\lambda_{P#1}} % can use like \lap1 , \lap2
+\newcommand{\lam}[1]{\lambda_{#1}} % can use like \lam3
+
+% Search channels
+\newcommand{\hdm}{\ensuremath{h+\textrm{DM}}\xspace}
+\newcommand{\monoh}{\ensuremath{h+\MET}\xspace}
+\newcommand{\monohbb}{\ensuremath{h(bb)+\MET}\xspace}
+\newcommand{\monoz}{\ensuremath{Z+\MET}\xspace}
+\newcommand{\monozll}{\ensuremath{Z(\ell\ell)+\MET}\xspace}
+\newcommand{\monozhad}{\ensuremath{Z(\textrm{had})+\MET}\xspace}
+
+% Software/Program/Model names
+\newcommand{\mg}{\textsc{MadGraph~5}\xspace}
+\newcommand{\mgamcnlo}{MG5\_aMC@NLO\xspace}
+\newcommand{\dmsimp}{\textsc{DMsimp}\xspace}
+\newcommand{\maddm}{\textsc{MadDM}\xspace}
+\newcommand{\hdma}{\ensuremath{\textrm{2HDM+a}}\xspace}
+
+% Misc
+\newcommand{\GamA}{\ensuremath{\Gamma_{A}}\xspace}
+\newcommand{\Uli}{\color{red}}
+\definecolor{cerulean}{RGB}{44,150,207}
+\newcommand{\ATLASComments}{\color{cerulean}}
+\newcommand{\bra}[1]{\langle #1|}
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\sens}{\mathcal{S}\xspace}
+\newcommand{\senstot}{\mathcal{S}_\textrm{tot}\xspace}
+\newcommand{\mathsc}[1]{\text{\textsc{#1}}}
+\newcommand{\vev}[1]{\langle {#1} \rangle}
+
+\DeclareMathOperator{\arccot}{arccot}
+
+\def\be   {\begin{equation}}   \def\ee   {\end{equation}}
+\def\ba   {\begin{array}}      \def\ea   {\end{array}}
+\def\bea  {\begin{eqnarray}}   \def\eea  {\end{eqnarray}}
+\def\bean {\begin{eqnarray*}}  \def\eean {\end{eqnarray*}}
+\def\nn{\nonumber}
+
+
+\allowdisplaybreaks
+
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+\def\bm#1{\mbox{\boldmath$#1$\unboldmath}} 
+
+\begin{document}
+\title{\begin{boldmath} \huge LHC Dark Matter Working Group:  \\ Next-generation spin-0  dark matter models \vspace{7mm} \end{boldmath}}
+
+%%%%%%
+
+\author[1]{First~Last,}
+\affiliation[1]{Department/Institute, University/Lab, \\
+address}
+
+\affiliation[*]{DMWG organisers}
+
+\hfill CERN-LPCC-2019-00X
+
+\abstract{To be filled \ldots}  
+
+\maketitle
+
+\newpage 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+\label{sec:introduction}
+
+\ldots
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\acknowledgments 
+
+\ldots
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+\section{Some heading}
+\label{app:some}
+
+In this appendix we \ldots
+
+\newpage 
+
+\bibliography{2HDMa-whitepaper}
+\bibliographystyle{JHEP}
+
+%\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{100}
+
+%\end{thebibliography}\endgroup
+
+\end{document}
