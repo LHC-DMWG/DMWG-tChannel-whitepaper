@@ -49,12 +49,8 @@ CS2 = ax.contour(xi, yi, zi, levels, colors = 'k',lw = 3)
 ax.clabel(CS2, inline=1, fontsize=10, fmt='%.1e')
 ax.plot(x1,fun1,'--',lw=1.5,color='orange')
 
-
-
-#ax.text(0.15, 0.90, 'S3M_uR model',fontweight='light',fontsize=10,transform=ax.transAxes)
 ax.text(0.1, 0.9, r'$\lambda = 1.0$',fontweight='light',fontsize=10,transform=ax.transAxes)
 ax.text(0.1, 0.3, r'$m_{\rm med} = m_{\rm DM}$',fontweight='light',fontsize=10,rotation=+45,transform=ax.transAxes)
-
 
 ax.set_title(r'S3M_uR t-channel model',fontsize=15)
 ax.set_ylabel(r'$m_{\rm DM}\, \rm [GeV]$',fontsize=15)
@@ -84,14 +80,11 @@ zi = griddata(my, mx, excl_SI, yi, xi, interp='linear')
 
 
 ax.plot(x1,fun1,'--',lw=1.5,color='orange')
-#contours = [1e-10,1e-5,1e-3,1.,10.,100.,1000.,1e10]
 contours = [1e-10,1e-2,1,1e100]
 
 CS=ax.contourf(yi,xi,zi, contours, locator=ticker.LogLocator(),cmap=plt.cm.viridis, origin=origin)
 CS1 = ax.contour(yi,xi,zi,contours, locator=ticker.LogLocator(),colors = 'k',linewidths = 1)
 ax.clabel(CS1, inline=1, fontsize=10, fmt=ticker.LogFormatterMathtext())
-#cbar = plt.colorbar(CS)
-#cbar.ax.set_ylabel(r'$\mu = \sigma^{\rm SI}/\sigma^{XENON1T}$')
 
 ax.set_title(r'S3M_uR t-channel model',fontsize=15)
 ax.text(0.1, 0.9, r'$\lambda = 1.0$',fontweight='light',fontsize=10,transform=ax.transAxes)
