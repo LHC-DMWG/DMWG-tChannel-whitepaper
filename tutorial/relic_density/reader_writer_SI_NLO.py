@@ -7,6 +7,8 @@ import os
 import os.path
 
 
+## here the functions for SI@NLO
+
 def ft():
     ftpu = 0.0153
     ftpd = 0.0191
@@ -112,7 +114,7 @@ def sigma_SI_maj(ac,bc,mdm,mmed,NLO=False):
     return value
 
 
-
+## here read out the scan output of maddm and write on the shell the output below for the plots
 
 mx,my,omegah2,si_lo_p,xe_si,si_lo_n,sd_p,pico_p = np.genfromtxt('scan_run_01.txt',unpack=True,usecols=[1,2,3,7,8,9,11,12])
 
@@ -133,6 +135,6 @@ for i in range(len(mx)):
     else:
         si_nlo_p = sigma_SI_maj(a,b,mdm,mmed, NLO=True)[0] * gevm2tocm2
         si_nlo_n = sigma_SI_maj(a,b,mdm,mmed, NLO=True)[1] * gevm2tocm2
-    mu_ss_SI =  si_nlo_p / xe_si[i]
-    mu_ss_SD =  sd_p[i] / pico_p[i]             
+    mu_ss_SI =  si_nlo_p / xe_si[i]   ## definition of signal strenght for SI
+    mu_ss_SD =  sd_p[i] / pico_p[i]             ## definition of signal strenght for SD
     print mx[i], my[i], omegah2[i],si_nlo_p,xe_si[i],si_nlo_n,sd_p[i],pico_p[i],mu_ss_SI,mu_ss_SD
